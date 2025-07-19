@@ -9,25 +9,18 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 
-//@Composable
-//fun Navigation(viewModel: ViewModel = viewModel(), navController: NavHostController = rememberNavController()){
-//    NavHost(navController = navController,
-//        startDestination = Screen.HomeScreen.route)
-//    {
-//        composable(Screen.HomeScreen.route){
-//            HomeView()
-//        }
-//    }
-//}
-
 @Composable
-fun Navigation(navController: NavHostController = rememberNavController()) {
+fun Navigation(viewModel: WishViewModel = viewModel(),navController: NavHostController = rememberNavController()) {
     NavHost(
         navController = navController,
         startDestination = Screen.HomeScreen.route
     ) {
         composable(Screen.HomeScreen.route) {
-            HomeView()
+            HomeView(navController, viewModel)
+        }
+
+        composable(Screen.AddScreen.route) {
+            addeditdetailview(id = 0L, viewModel = viewModel, navController = navController)
         }
     }
 }

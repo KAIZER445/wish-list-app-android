@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
@@ -49,7 +50,26 @@ fun addeditdetailview(
             verticalArrangement = Arrangement.Center
         ) {
             Spacer(modifier = Modifier.height(10.dp))
+
+            WishTextField(label = "Title",
+                value = viewModel.wishTitleState,
+                onValueChangeListener = {viewModel.onWishTitleChange(it)})
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            WishTextField(label = "Description",
+                value = viewModel.wishDescriptionState,
+                onValueChangeListener = {viewModel.onWishDescriptionChange(it)})
+
+            Spacer(modifier = Modifier.height(10.dp))
             
+            Button(onClick = { /*TODO*/ }) {
+                if (id != 0L) {
+                    Text(text = "Update Wishlist")
+                }else{
+                    Text(text = "Add Wishlist")
+                }
+            }
         }
     }
 
