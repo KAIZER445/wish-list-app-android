@@ -39,7 +39,10 @@ fun addeditdetailview(
         else
 
             stringResource(R.string.add_wish)
-        )}
+        )
+        { navController.navigateUp() }
+                 }
+
     ) {
         Column(
             modifier = Modifier
