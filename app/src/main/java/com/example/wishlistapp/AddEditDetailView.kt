@@ -96,7 +96,13 @@ fun addeditdetailview(
                 if (viewModel.wishTitleState.isNotEmpty() &&
                     viewModel.wishDescriptionState.isNotEmpty()){
                     if (id != 0L){
-
+                        viewModel.updateWish(
+                            Wish(
+                                id = id,
+                                title = viewModel.wishTitleState.trim(),
+                                description = viewModel.wishDescriptionState.trim()
+                            )
+                        )
                     }else{
                         viewModel.addWish(
                             Wish(
